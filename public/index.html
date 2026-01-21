@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Blog</h1>
+
+  <!-- Create Blog -->
+  <h2>Create a blog</h2>
+  <form id="createForm">
+    <input type="text" id="title" placeholder="Title" required>
+    <textarea id="body" placeholder="Body" required></textarea>
+    <input type="text" id="author" placeholder="Author (optional)">
+    <button type="submit">Create</button>
+  </form>
+
+  <!-- Display Blogs -->
+  <h2>All blogs</h2>
+  <div id="blogs"></div>
+
+  <script>
+    const API_URL = 'http://localhost:3000/blogs';
+
+    // Create blog
+    document.getElementById('createForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const blog = {
+        title: document.getElementById('title').value,
+        body: document.getElementById('body').value,
+        author: document.getElementById('author').value || 'Anonymous'
+      };
+      await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(blog)
+      });
+      loadBlogs();
+    });
+
+    // Load blogs
+    async function loadBlogs() {
+      const res = await fetch(API_URL);
+      const blogs = await res.json();
+      const container = document.getElementById('blogs');
+      container.innerHTML = blogs.map(b => `
+        <div>
+          <h3>${b.title}</h3>
+          <p>${b.body}</p>
+          <small>By ${b.author}</small>
+        </div>
+      `).join('');
+    }
+
+    loadBlogs();
+  </script>
+</body>
+</html>

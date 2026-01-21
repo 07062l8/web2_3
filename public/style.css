@@ -1,0 +1,86 @@
+/* Общие стили */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Заголовки */
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+h2 {
+  margin-top: 30px;
+  color: #34495e;
+}
+
+/* Форма */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+form input, form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+form button {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #2980b9;
+}
+
+/* Список блогов */
+#blogs {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#blogs div {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+#blogs h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+}
+
+#blogs p {
+  margin: 0 0 10px 0;
+}
+
+#blogs small {
+  color: #888;
+}
+
+textarea {
+  resize: vertical;   /* разрешает изменять только высоту */
+  min-height: 60px;  /* минимальная высота */
+}
